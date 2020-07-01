@@ -15,5 +15,4 @@ class CommunitiesController < ApplicationController
     def community_params
       params.require.permit(:name)
     end
-  end
 end

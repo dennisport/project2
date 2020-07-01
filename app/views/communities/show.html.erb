@@ -5,6 +5,6 @@
 <ul>
 <label><%=link_to post.user.name,  user_path(post.user)%>: <br/>
 <%=post.content%>  <br>
-Likes: <%=post.likes.count%><br><br>
+Likes: <% #post.likes.count%><br><br>
 </ul>
 <%end%>

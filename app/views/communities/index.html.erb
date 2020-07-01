@@ -3,8 +3,7 @@
     <%@communities.each do |community|%><br>
         <div class= 'community-card'>
         <h2><%=community.name%> Posts: <%=community.posts.count%></h2>
-        <br>
-        <a href= <%="communities/#{community.id}"%>><img src=<%=community.photo_url%> height = "100" width = "100"></a> 
+        <br> 
         </div>
     <%end%>
     </div>
