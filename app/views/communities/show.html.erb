@@ -1,0 +1,10 @@
+<h1><%=@community.name%></h1>
+
+
+<%@community.posts.each do |post|%>
+<ul>
+<label><%=link_to post.user.name,  user_path(post.user)%>: <br/>
+<%=post.content%>  <br>
+Likes: <%=post.likes.count%><br><br>
+</ul>
+<%end%>

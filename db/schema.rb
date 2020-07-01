@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_214124) do
+ActiveRecord::Schema.define(version: 2020_07_01_155545) do
 
   create_table "communities", force: :cascade do |t|
     t.string "description"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_214124) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "fellower_id"
+    t.integer "follower_id"
     t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
