@@ -16,15 +16,15 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        @post.save
-        byebug
-        redirect_to "/posts/#{@post.id}"
-        # if @post.valid?
-        #   @post.save  
-        #   redirect_to post_path(@post)
-        # else
-        #   render :new
-        # end
+        # @post.save
+        #byebug
+        #redirect_to "/posts/#{@post.id}"
+        if @post.valid?
+            @post.save  
+            redirect_to post_path(@post)
+          else
+            render :new
+        end
       end
 
     def edit
@@ -45,6 +45,8 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to posts_url
     end
+
+    private
 
     def current_post
         @post = Post.find(params[:id])

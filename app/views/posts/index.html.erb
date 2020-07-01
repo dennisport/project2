@@ -1,5 +1,9 @@
 <h1>All Posts</h1>
 
-<% @posts.each do |posts|%>
-    <%= link_to post.name, post_path(post)%> 
+<% @posts.each do |post|%>
+    <tr>
+    <td><%= post.name %></td>
+    <td><%= post.description %></td>
+    <% # link_to post.name, post_path(post)%> 
+    </tr>
 <% end %>
