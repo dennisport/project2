@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+
+
+# Seeded Users Test
+u1 = User.create(username: "test 1", password:"1", bio: "first seeded user!")
+u2 = User.create(username: "test 2", password:"a", bio: "second seeded user")
