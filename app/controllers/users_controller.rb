@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :allposts, :followers, :following, :follow, :unfollow]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :allposts, :followers, :following]
+  before_action :current_user, only: [:follow, :unfollow]
 
   # GET /users
   # GET /users.json
@@ -57,13 +58,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if @user = User.find(params[:id])
-      @user.destroy
-      respond_to do |format|
-      format.html { redirect_to user_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-      end
-    end
+      @user = User.find(params[:id])
+      @user.destroy!
+      redirect_to '/'
   end
 
   def follow
@@ -86,7 +83,6 @@ class UsersController < ApplicationController
 
   def following
   end
-
 
 
   private
