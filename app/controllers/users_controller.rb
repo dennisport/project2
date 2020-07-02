@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :allposts, :followers, :following]
 
   # GET /users
   # GET /users.json
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    render :layout => false
   end
 
   # GET /users/1/edit
@@ -74,6 +75,17 @@ class UsersController < ApplicationController
     @current_user.followed_users.find_by(followee_id: @user.id).destroy
     redirect_to user_path(@user)
   end
+
+  def allposts
+  end
+
+  def followers
+  end
+
+  def following
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -4,12 +4,46 @@
     <title>Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-
   <body>
+
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">Our Project Name </a>
+      <form class="form-inline">
+        <!-- <a class="btn btn-outline-primary" href="/login" role="button">
+        Login
+        </a>
+        <div style="padding-left: 6px;">
+          <a class="btn btn-outline-success" href="/signup" role="button">
+          Sign Up
+          </a> !-->
+          <div style="padding-left: 10px;">
+          <a class="btn btn-outline-success" href= "/users/<%= session[:user_id] %>" role="button" >
+          My Profile
+          </a> 
+          <a class="btn btn-outline-success" href='/users/<%= session[:user_id] %>/posts' role="button">
+          My Posts
+          </a>
+          <a class="btn btn-outline-success" href="/posts" role="button">
+          All Posts
+          </a>
+          <a class="btn btn-outline-success" href="/communities" role="button">
+          Communities
+          </a>
+          <a class="btn btn-outline-success" href='/users/<%= session[:user_id] %>/followers' role="button">
+          Followers
+          </a>
+          <a class="btn btn-outline-success" href='/users/<%= session[:user_id] %>/following' role="button">
+          Following
+          </a>
+          <a class="btn btn-outline-success" href="/logout" role="button">
+          Log Out
+          </a>
+        </div>
+      </form>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

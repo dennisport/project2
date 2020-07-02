@@ -1,0 +1,10 @@
+User: <strong><em><%=link_to @user.username, user_path(@user)%></strong></em><br>
+<ul>
+<% @user.posts.each do |post|%>
+    <li> <%= link_to post.name, post_path(post), :class=> "text-primary"%><br> </li>
+
+<% end %>
+</ul>
+
+<a class="btn btn-outline-primary" href= "/posts/new" role="button">New Post</a>
+

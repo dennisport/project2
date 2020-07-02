@@ -1,9 +1,11 @@
 <h1>Communities</h1>
     <div class= 'community-card-container'>
-    <%@communities.each do |community|%><br>
+    <%@communities.sort_by(&:name).each do |community|%><br>
         <div class= 'community-card'>
-        <h2><%=community.name%> Posts: <%=community.posts.count%></h2>
+        <h2><%= link_to community.name , "/communities/#{community.id}", :class=> "text-primary"%> Posts: <%=community.posts.count%></h2>
         <br> 
         </div>
     <%end%>
     </div>
+
+<a class="btn btn-outline-primary" href= "/communities/new" role="button">New Community</a>

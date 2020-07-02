@@ -1,8 +1,11 @@
-<h1>All Posts</h1>
+<h1 class="text-center">All Posts</h1>
+
 
 <% @posts.each do |post|%>
-    <br><%= post.name %><br>
-    <%= post.description %><br>
-    <%= link_to post.name, post_path(post)%><br>
+    User: <em><strong> <%=link_to post.user.username, user_path(post.user)%></em></strong><br>
+    <%= link_to post.name, post_path(post), :class=> "text-primary"%><br><br>
+
 <% end %>
+<a class="btn btn-outline-primary" href= "/posts/new" role="button">New Post</a>
+
 

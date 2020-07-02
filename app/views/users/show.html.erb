@@ -12,10 +12,10 @@
 
 <section id="all-links">
     <% if @user.id == @current_user.id %>
-        <%= link_to 'Edit', edit_user_path(@user) %> |
-        <%= button_to "Logout", '/logout', method: :post %>
+        <%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn btn-outline-primary" %> 
+        
     <% elsif @current_user.followees.include?(@user) %>
-        <h5><%= button_to "UnFollow #{@user.username}", unfollow_user_path, method: "POST" %></h5>
+        <h5><%= button_to "Unfollow #{@user.username}", unfollow_user_path, method: "POST" %></h5>
     <% else %>
        <h5><%= button_to "Follow #{@user.username}", follow_user_path, method: "POST"  %></h5>
     <% end%>

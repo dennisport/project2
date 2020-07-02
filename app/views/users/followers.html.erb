@@ -1,0 +1,10 @@
+<h1 class="text-center">Followers</h1>
+
+
+<ul>
+<% @user.followers.each do |follower|%>
+    <p class="text-center" ><li> <strong><em><%= link_to follower.username, user_path(follower) %><br> </li></p>
+
+<% end %>
+</ul>
+

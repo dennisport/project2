@@ -6,13 +6,29 @@ class CommunitiesController < ApplicationController
   
     def show
     end
+
+    def new
+      @community = Community.new
+    end
+
+    def create
+      @community = Community.new(community_params)
+      if @community.valid?
+          @community.save  
+          redirect_to community_path(@community)
+        else
+          render :new
+      end
+    end
   
     private 
     def find_community
       @community = Community.find(params[:id])
 
     end
+
+
     def community_params
-      params.require.permit(:name)
-    end
+      params.require(:community).permit!
+  end
 end
