@@ -11,9 +11,8 @@
 </p>
 
 <section id="all-links">
-    <% if @user.id == @current_user.id %>
+    <% if @user == current_user %>
         <%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn btn-outline-primary" %> 
-        
     <% elsif @current_user.followees.include?(@user) %>
         <h5><%= button_to "Unfollow #{@user.username}", unfollow_user_path, method: "POST" %></h5>
     <% else %>
