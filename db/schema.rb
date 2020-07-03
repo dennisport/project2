@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_155545) do
+ActiveRecord::Schema.define(version: 2020_07_02_210218) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "community_id"
+    t.integer "posts_id"
+  end
 
   create_table "communities", force: :cascade do |t|
     t.string "description"
