@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
     before_action :authorized?
     helper_method :logged_in?
-
+    helper_method :current_user
+    before_action :session_user
 
    def authorized?
     end
@@ -20,3 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def session_user
+    @user_id = session[:user_id]
+    @logged_in = !!@user_id
+    if @logged_in
+       @current_user = User.find(@user_id)
+    end
+ end
