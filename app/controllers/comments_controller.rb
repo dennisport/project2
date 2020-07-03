@@ -7,13 +7,14 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @commentable.comments.new(comment_params)
+        @comment.update_attributes(user_id: session[:user_id])
         @commentable.save
       end
 
     private
 
     def comment_params
-      params.require(:comment).permit(:content, :name)
+      params.require(:comment).permit!
     end
 
     def find_commentable

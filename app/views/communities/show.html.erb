@@ -5,8 +5,8 @@
 
 <%@community.posts.each do |post|%>
 <ul>
-<label><%=link_to post.user.username,  user_path(post.user)%>: <br/>
-    <%= link_to post.name, post_path(post)%><br>
+User: <em><strong> <%=link_to post.user.username, user_path(post.user)%></em></strong><br>
+    <%= link_to post.name, post_path(post), :class=> "text-primary"%><br>
 </ul>
 <%end%>
 

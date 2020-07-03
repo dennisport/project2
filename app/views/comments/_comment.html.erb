@@ -1,4 +1,5 @@
 <li>
+  <strong><em><%= User.find(comment.user_id).username %>: </strong></em>
   <%= comment.content %>
 
   <%= form_for [comment, Comment.new] do |f| %>
