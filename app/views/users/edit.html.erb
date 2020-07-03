@@ -2,8 +2,7 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', user_path %> |
-<%= link_to 'Destroy', user_path(@user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', user_path %> 
+<%= form_for @user, method: :delete do |f| %>
+	<%= f.submit "Delete User" %>
+<% end %>

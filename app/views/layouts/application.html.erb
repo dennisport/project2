@@ -8,16 +8,10 @@
   </head>
   <body>
 
+    <% if session[:user_id] %>
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="/">Our Project Name </a>
       <form class="form-inline">
-        <!-- <a class="btn btn-outline-primary" href="/login" role="button">
-        Login
-        </a>
-        <div style="padding-left: 6px;">
-          <a class="btn btn-outline-success" href="/signup" role="button">
-          Sign Up
-          </a> !-->
           <div style="padding-left: 10px;">
           <a class="btn btn-outline-success" href= "/users/<%= session[:user_id] %>" role="button" >
           My Profile
@@ -43,6 +37,7 @@
         </div>
       </form>
     </nav>
+    <% end %>
 
     <%= yield %>
   </body>
