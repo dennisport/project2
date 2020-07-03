@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
-    before_action :find_community, only: [:show]
+    before_action :find_community, only: [:show, :edit, :update, :destroy]
+    
     def index
       @communities = Community.all
     end

@@ -1,35 +1,24 @@
 class CommentsController < ApplicationController
+    before_action :find_commentable
 
-def create
-    @comment = Comment.create(comment_params)
-    @posts = Post.All 
-    redirect_to user_path(@comment.post.user)
-end
+    def new
+      @comment = Comment.new
+    end
 
-def new
-    @comment = Comment.new
-    @posts = Post.all
-end
+    def create
+        @comment = @commentable.comments.new(comment_params)
+        @commentable.save
+      end
 
-def edit
-end
+    private
 
-def update
-    @comment.update
-end
+    def comment_params
+      params.require(:comment).permit(:content, :name)
+    end
 
-def destroy
-    @comment.destroy
-end
-
-private 
-
-def find_comment
-    @comment = Comment.find(params[:id])
-end
-
-def current_params
-    params.permit(:user_id, :post_id, :content)
-end
+    def find_commentable
+        @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+        @commentable = Post.find_by_id(params[:post_id]) if params[:post_id]
+    end
 
 end

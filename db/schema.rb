@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_210218) do
+ActiveRecord::Schema.define(version: 2020_07_03_081758) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.integer "community_id"
-    t.integer "posts_id"
+    t.integer "post_id"
+    t.string "name"
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "communities", force: :cascade do |t|
@@ -40,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_210218) do
     t.integer "community_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "comment_id"
   end
 
   create_table "users", force: :cascade do |t|
