@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :allposts, :followers, :following, :follow, :unfollow]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :allposts, :followers, :following]
+  before_action :current_user, only: [:follow, :unfollow]
 
   # GET /users
   # GET /users.json
@@ -89,7 +90,6 @@ class UsersController < ApplicationController
 
   def following
   end
-
 
 
   private
