@@ -58,9 +58,10 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     if @user = User.find(params[:id])
+      @user.posts.each{|post| post.destroy}
       @user.destroy
       respond_to do |format|
-      format.html { redirect_to user_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to "/", notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
       end
     end
@@ -68,12 +69,14 @@ class UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
     @current_user.followees << @user
     redirect_to user_path(@user)
   end
   
   def unfollow
     @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
     @current_user.followed_users.find_by(followee_id: @user.id).destroy
     redirect_to user_path(@user)
   end
