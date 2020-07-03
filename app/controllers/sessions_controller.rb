@@ -18,5 +18,33 @@ class SessionsController < ApplicationController
     session.delete :user_id
       redirect_to '/' 
   end
+
+  def analytics
+    @total_users = User.all.count
+    @most_active = User.most_active
+    @least_active = User.least_active
+    @newest_user = User.newest
+    @oldest_user = User.oldest
+    @most_followers = User.most_followers
+    @least_followers = User.least_followers
+
+
+    @total_communities = Community.all.count
+    @most_active_community = Community.most_active
+    @least_active_community = Community.least_active
+    @newest_community = Community.newest
+    @oldest_community = Community.oldest
+
+    @total_posts = Post.all.count
+    @newest_post = Post.newest
+    @oldest_post = Post.oldest
+    @longest_post = Post.longest
+    @shortest_post = Post.shortest
+
+    @total_followers = Follow.all.count
+
+
+    render :analytics
+  end
   
 end

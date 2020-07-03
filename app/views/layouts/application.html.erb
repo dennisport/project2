@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
+    <title>NotReddit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,7 +10,7 @@
 
     <% if session[:user_id] %>
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="/">Our Project Name </a>
+      <a class="navbar-brand" href="/">NotReddit</a>
       <form class="form-inline">
           <div style="padding-left: 10px;">
           <a class="btn btn-outline-success" href= "/users/<%= session[:user_id] %>" role="button" >
@@ -30,6 +30,9 @@
           </a>
           <a class="btn btn-outline-success" href='/users/<%= session[:user_id] %>/following' role="button">
           Following
+          </a>
+          <a class="btn btn-outline-success" href="/analytics" role="button">
+          Analytics
           </a>
           <a class="btn btn-outline-success" href="/logout" role="button">
           Log Out

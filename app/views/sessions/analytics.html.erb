@@ -1,0 +1,35 @@
+
+<h2>Users</h2>
+Total Number of Users: <strong><em> <%= @total_users %> </strong></em> users. <br>
+Most Active User: <strong><em> <%= @most_active.username%></strong></em> with <%= @most_active.posts.count %> posts.<br>
+Least Active User: <strong><em> <%= @least_active.username%></strong></em> with <%= @least_active.posts.count %> posts.<br>
+Newest User: <strong><em> <%= @newest_user.username%></strong></em> created on <%= @newest_user.created_at.strftime("%B %d, %Y.")%> <br>
+Oldest User: <strong><em> <%= @oldest_user.username%></strong></em> created on <%= @oldest_user.created_at.strftime("%B %d, %Y.")%> <br>
+User With The Most Followers: <strong><em><%= @most_followers.username%> </strong></em> with <%= @most_followers.followers.count%> followers.<br>
+User With The Least Followers: <strong><em> <%= @least_followers.username%></strong></em> with <%= @least_followers.followers.count%> followers.<br> 
+
+
+<h2>Communities</h2>
+Total Number of Communities: <strong><em> <%= @total_communities %> </strong></em> communities. <br>
+Most Active Community: <strong><em> <%= @most_active_community.name%></strong></em> with <%= @most_active_community.posts.count %> posts.<br>
+Least Active Community: <strong><em> <%= @least_active_community.name%></strong></em> with <%= @least_active_community.posts.count %> posts.<br>
+Newest Community: <strong><em> <%= @newest_community.name%></strong></em> created on <%= @newest_community.created_at.strftime("%B %d, %Y.")%> <br>
+Oldest Community: <strong><em> <%= @oldest_community.name%></strong></em> created on <%= @oldest_community.created_at.strftime("%B %d, %Y.")%> <br>
+
+<h2>Posts</h2>
+Total Number of Posts: <strong><em> <%= @total_posts %> </strong></em> posts. <br>
+Newest Post: <strong><em> <%= @newest_post.name%></strong></em> created on <%= @newest_post.created_at.strftime("%B %d, %Y.")%> <br>
+Oldest Post: <strong><em> <%= @oldest_post.name%></strong></em> created on <%= @oldest_post.created_at.strftime("%B %d, %Y.")%> <br>
+Longest Post: <strong><em> <%= @longest_post.name%></strong></em><br>
+Shortest Post: <strong><em> <%= @shortest_post.name%></strong></em><br>
+
+
+<h2>Followers</h2>
+Total Number of Followers: <strong><em> <%= @total_followers %> </strong></em> followers. <br>
+
+
+
+
+<%= link_to "Back", "javascript:history.go(-1);", :class=> "btn btn-outline-success"  %>
+
+

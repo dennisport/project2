@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/users/:id/posts', to: "users#allposts"
   get '/users/:id/followers', to: "users#followers"
   get '/users/:id/following', to: "users#following"
-
+  get '/analytics', to: "sessions#analytics"
 
 
 
