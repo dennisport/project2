@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_07_03_081758) do
     t.integer "community_id"
     t.integer "post_id"
     t.string "name"
-    t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.string "commentable_type"
+    t.integer "commentable_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 

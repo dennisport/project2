@@ -10,6 +10,16 @@
   <%= @user.bio %>
 </p>
 
+
+<%= @user.username %>'s Posts:
+
+<ul>
+<% @posts.each do |post|%>
+    <li><%= link_to post.name, post_path(post), :class=> "text-primary"%></li><br><br>
+
+<% end %>
+</ul>
+
 <section id="all-links">
     <% if @user == current_user %>
         <%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn btn-outline-primary" %> 
